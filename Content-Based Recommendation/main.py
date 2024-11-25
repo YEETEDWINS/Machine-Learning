@@ -26,5 +26,17 @@ print(SIMobj[1000:1010])
 
 def Recommend(title):
   index = indices[title]
+  print(index)
+  print(SIMobj[index])
   simScores = list(enumerate(SIMobj[index]))
-  simScores.
+  print(simScores[:10])
+  sortedScores = sorted(simScores, key=lambda x: x[1], reverse=True)
+  topScores = sortedScores[:10]
+  print(topScores)
+  top10MovieIndex = []
+  for i in topScores:
+    top10MovieIndex.append(i[0])
+  print(top10MovieIndex)
+  print(data["title"][top10MovieIndex])
+
+Recommend("The Dark Knight Rises")
