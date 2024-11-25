@@ -10,7 +10,8 @@ print(data.shape)
 
 print(data["overview"].isna().sum())
 delete = data[data['overview'].isna()].index
-data.drop(delete, inplace=True)
+# data.drop(delete, inplace=True)
+data["overview"] = data["overview"].fillna("")
 print(data.shape)
 obj = TfidfVectorizer(stop_words="english")
 TfidMatrix = obj.fit_transform(data["overview"])
@@ -39,4 +40,4 @@ def Recommend(title):
   print(top10MovieIndex)
   print(data["title"][top10MovieIndex])
 
-Recommend("The Dark Knight Rises")
+Recommend("Sabrina")
